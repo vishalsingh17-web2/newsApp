@@ -24,10 +24,12 @@ class _EntertainmentState extends State<Entertainment> with AutomaticKeepAliveCl
     return Container(
       padding: const EdgeInsets.only(left: 3, right: 3),
       child: StreamBuilder<List<Articles>>(
+        
         stream: news.newsStream,
         builder: (context, AsyncSnapshot<List<Articles>> snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
+              physics: const BouncingScrollPhysics(),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 var data = snapshot.data![index];

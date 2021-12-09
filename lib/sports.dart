@@ -28,6 +28,7 @@ class _SportsState extends State<Sports> with AutomaticKeepAliveClientMixin<Spor
         builder: (context, AsyncSnapshot<List<Articles>> snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
+              physics: const BouncingScrollPhysics(),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 var data = snapshot.data![index];
